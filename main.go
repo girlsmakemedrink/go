@@ -15,11 +15,11 @@ type requestBody struct {
 }
 
 //POST Выводим сообщение из тела запроса
-func BodyHandler(w http.ResponseWriter, r *http.Request) {
+func SendMessage(w http.ResponseWriter, r *http.Request) {
 	var rb requestBody
 	err := json.NewDecoder(r.Body).Decode(&rb)
 	if err != nil {
-		http.Error(w, "Error BodyHandler", http.StatusBadRequest)
+		http.Error(w, "Error SendMessage", http.StatusBadRequest)
 		return
 	}
 
@@ -35,11 +35,11 @@ func BodyHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 //GET Выводим все записи из таблицы
-func HelloHandler(w http.ResponseWriter, r *http.Request) {
+func ShowRecords(w http.ResponseWriter, r *http.Request) {
 	var records []Message
 	record := DB.Find(&records)
 	if record.Error != nil {
-		http.Error(w, "Error HelloHandler", http.StatusBadRequest)
+		http.Error(w, "Error ShowRecords", http.StatusBadRequest)
 	}
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(records)
@@ -51,7 +51,7 @@ func main() {
 	DB.AutoMigrate(&Message{})
 
 	router := mux.NewRouter()
-	router.HandleFunc("/api/hello", HelloHandler).Methods("GET")
-	router.HandleFunc("/api/body", BodyHandler).Methods("POST")
+	router.HandleFunc("/api/show", ShowRecords).Methods("GET")
+	router.HandleFunc("/api/msg", SendMessage).Methods("POST")
 	http.ListenAndServe(":8080", router)
 }
