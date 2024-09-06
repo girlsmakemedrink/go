@@ -18,7 +18,7 @@ type requestBody struct {
 }
 
 //POST Выводим сообщение из тела запроса
-func SendMessage(w http.ResponseWriter, r *http.Request) {
+func PostMessage(w http.ResponseWriter, r *http.Request) {
 	var rb requestBody
 	err := json.NewDecoder(r.Body).Decode(&rb)
 	if err != nil {
@@ -39,7 +39,7 @@ func SendMessage(w http.ResponseWriter, r *http.Request) {
 }
 
 //GET Выводим все записи из таблицы
-func ShowMessages(w http.ResponseWriter, r *http.Request) {
+func GetMessages(w http.ResponseWriter, r *http.Request) {
 	var records []Message
 	showMessage := DB.Find(&records)
 
@@ -79,7 +79,7 @@ func DeleteMessage (w http.ResponseWriter, r *http.Request) {
 }
 
 //PATCH Обновляем запись по ID
-	func UpdateMessage (w http.ResponseWriter, r *http.Request) {
+	func PatchMessage (w http.ResponseWriter, r *http.Request) {
 		var rb requestBody
 		err := json.NewDecoder(r.Body).Decode(&rb)
 		if err != nil {
@@ -106,9 +106,9 @@ func DeleteMessage (w http.ResponseWriter, r *http.Request) {
 		DB.AutoMigrate(&dbRecord)
 
 		router := mux.NewRouter()
-		router.HandleFunc("/api/show", ShowMessages).Methods("GET")
-		router.HandleFunc("/api/send", SendMessage).Methods("POST")
+		router.HandleFunc("/api/get", GetMessages).Methods("GET")
+		router.HandleFunc("/api/post", PostMessage).Methods("POST")
 		router.HandleFunc("/api/delete", DeleteMessage).Methods("DELETE")
-		router.HandleFunc("/api/update", UpdateMessage).Methods("PATCH")
+		router.HandleFunc("/api/update", PatchMessage).Methods("PATCH")
 		http.ListenAndServe(":8080", router)
 	}
