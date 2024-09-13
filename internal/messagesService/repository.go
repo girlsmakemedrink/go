@@ -48,17 +48,21 @@ func (r *messageRepository) CreateMessage(message Message) (Message, error) {
 }
 
 func (r *messageRepository) UpdateMessageByID(id uint, message Message) (Message, error) {
-	updatedMessage := r.db.First(&Message{}, id)
-	if updatedMessage.Error != nil {
-		return Message{}, updatedMessage.Error
+	var existingMessage Message
+	updateMessage := r.db.First(&existingMessage, id)
+	if updateMessage.Error != nil {
+		return Message{}, updateMessage.Error
 	}
 
-	updatedMessage = r.db.Model(&Message{}).Where("id = ?", id).Updates(&message)
-	if updatedMessage.Error != nil {
-		return Message{}, updatedMessage.Error
+	// Обновляем существующую запись
+	existingMessage.Message = message.Message
+	updateMessage = r.db.Save(&existingMessage)
+	if updateMessage.Error != nil {
+		return Message{}, updateMessage.Error
 	}
-	return message, nil
+	return existingMessage, nil
 }
+
 
 func (r *messageRepository) DeleteMessageByID(id uint) (Message, error) {
 	var message Message
