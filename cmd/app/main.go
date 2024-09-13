@@ -12,7 +12,9 @@ import (
 
 func main() {
 	database.InitDB()
-	database.DB.AutoMigrate(&messagesService.Message{})
+	if err := database.DB.AutoMigrate(&messagesService.Message{}); err != nil {
+		log.Fatalf("Ошибка миграции: %v", err)
+	}
 
 	repo := messagesService.NewMessageRepository(database.DB)
 	service := messagesService.NewService(repo)

@@ -6,7 +6,7 @@ import (
 
 type Message struct {
 	gorm.Model
-	Message string `json: "Message"`
+	Message string `json:"Message"`
 }
 
 type MessageRepository interface {

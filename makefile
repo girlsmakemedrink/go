@@ -19,3 +19,6 @@ migrate-down:
 # для удобства добавим команду run, которая будет запускать наше приложение
 run:
 	go run cmd/app/main.go
+
+lint:
+	golangci-lint run --out-format=colored-line-number

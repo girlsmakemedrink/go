@@ -12,7 +12,7 @@ var DB *gorm.DB
 
 type Message struct {
 	gorm.Model
-	Text string `json: "Message"`
+	Text string `json:"Message"`
 }
 
 func InitDB() {
