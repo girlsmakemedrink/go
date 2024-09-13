@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:main" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="24bccfb1-8a70-43a9-a99c-eed8b6c450a6" name="Changes" comment="Добавление makefile и создание первых миграций.&#10;+&#10;Переезд на линукс">
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/makefile" beforeDir="false" afterPath="$PROJECT_DIR$/makefile" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="C:\Users\terki\awesomeProject\go1.23.1" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/girlsmakemedrink/hw" />
+      </set>
+    </option>
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
+  <component name="Make.Settings">
+    <option name="path" value="\\wsl$\Ubuntu\usr\bin\make" />
+  </component>
+  <component name="ProjectId" id="2lZMHfK3KB3JpkmRSH95TITLkHU" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="GO_FMT" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="configurable.Global.GOPATH.is.expanded" value="true" />
+    <property name="configurable.Module.GOPATH.is.expanded" value="false" />
+    <property name="configurable.Project.GOPATH.is.expanded" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="last_opened_file_path" value="D:/homework/hw" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.make" />
+    <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager" selected="Makefile.migrate">
+    <configuration name="migrate-down" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/makefile" target="migrate-down" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <configuration name="migrate-new" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/makefile" target="migrate-new" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <configuration name="migrate" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/makefile" target="migrate" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <configuration name="run" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/makefile" target="run" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Makefile.migrate" />
+        <item itemvalue="Makefile.migrate-new" />
+        <item itemvalue="Makefile.migrate-down" />
+        <item itemvalue="Makefile.run" />
+        <item itemvalue="Makefile.migrate-down" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-gosdk-33c477a475b1-e0158606a674-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-241.18968.32" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-GO-241.18968.32" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <created>1725795314614</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1725795314614</updated>
+    </task>
+    <task id="LOCAL-00001" summary="ReFUCKtoring">
+      <created>1725822144775</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1725822144775</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="ReFUCKtoring" />
+    <MESSAGE value="Добавление makefile и создание первых миграций.&#10;+&#10;Переезд на линукс" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавление makefile и создание первых миграций.&#10;+&#10;Переезд на линукс" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="752" y="507" key="#GOROOT" timestamp="1725805714932">
+      <screen x="0" y="0" width="1920" height="1152" />
+    </state>
+    <state x="752" y="507" key="#GOROOT/0.0.1920.1152@0.0.1920.1152" timestamp="1725805714932" />
+    <state x="721" y="303" key="#Inspections" timestamp="1725806138802">
+      <screen x="0" y="0" width="1920" height="1152" />
+    </state>
+    <state x="721" y="303" key="#Inspections/0.0.1920.1152@0.0.1920.1152" timestamp="1725806138802" />
+    <state x="845" y="379" key="#Notifications" timestamp="1726168232884">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="845" y="379" key="#Notifications/-1920.-118.1920.1152/0.0.1920.1032@0.0.1920.1032" timestamp="1726168232884" />
+    <state x="341" y="357" key="#SQL_Dialects" timestamp="1725912399904">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="341" y="357" key="#SQL_Dialects/-1920.-118.1920.1152/0.0.1920.1032@0.0.1920.1032" timestamp="1725912399904" />
+    <state x="552" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1726214756207">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="552" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.-118.1920.1152/0.0.1920.1032@0.0.1920.1032" timestamp="1726214756207" />
+    <state x="92" y="92" width="1736" height="848" key="DiffContextDialog" timestamp="1725822407130">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="92" y="92" width="1736" height="848" key="DiffContextDialog/-1920.-118.1920.1152/0.0.1920.1032@0.0.1920.1032" timestamp="1725822407130" />
+    <state x="740" y="348" key="FileChooserDialogImpl" timestamp="1726167632526">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="740" y="348" key="FileChooserDialogImpl/-1920.-118.1920.1152/0.0.1920.1032@0.0.1920.1032" timestamp="1726167632526" />
+    <state x="740" y="388" key="FileChooserDialogImpl/0.0.1920.1152@0.0.1920.1152" timestamp="1726127390907" />
+    <state x="668" y="218" key="RollbackChangesDialog" timestamp="1726170088410">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="668" y="218" key="RollbackChangesDialog/-1920.-118.1920.1152/0.0.1920.1032@0.0.1920.1032" timestamp="1726170088410" />
+    <state x="461" y="198" key="SettingsEditor" timestamp="1726141698013">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="461" y="198" key="SettingsEditor/-1920.-118.1920.1152/0.0.1920.1032@0.0.1920.1032" timestamp="1726141698013" />
+    <state x="461" y="221" key="SettingsEditor/0.0.1920.1152@0.0.1920.1152" timestamp="1726125781760" />
+    <state x="790" y="385" key="VCS.EditChangelistDialog" timestamp="1726170049168">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="790" y="385" key="VCS.EditChangelistDialog/-1920.-118.1920.1152/0.0.1920.1032@0.0.1920.1032" timestamp="1726170049168" />
+    <state x="552" y="236" key="Vcs.Push.Dialog.v2" timestamp="1726170019937">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="552" y="236" key="Vcs.Push.Dialog.v2/-1920.-118.1920.1152/0.0.1920.1032@0.0.1920.1032" timestamp="1726170019937" />
+    <state x="769" y="430" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1726170262253">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="769" y="430" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1920.-118.1920.1152/0.0.1920.1032@0.0.1920.1032" timestamp="1726170262253" />
+    <state x="644" y="458" key="refactoring.ChangeSignatureDialog" timestamp="1725795754294">
+      <screen x="0" y="0" width="1920" height="1152" />
+    </state>
+    <state x="644" y="458" key="refactoring.ChangeSignatureDialog/0.0.1920.1152@0.0.1920.1152" timestamp="1725795754294" />
+    <state x="682" y="353" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1725912347569">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="682" y="353" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/-1920.-118.1920.1152/0.0.1920.1032@0.0.1920.1032" timestamp="1725912347569" />
+  </component>
+</project>

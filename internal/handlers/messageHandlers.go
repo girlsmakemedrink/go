@@ -1,11 +1,11 @@
 package handlers
 
 import (
-	"encoding/json"
+	"context"
 	"hw/internal/messagesService" // Импортируем наш сервис
-	"net/http"
+	"hw/internal/web/messages"        // Импортируем пакет messages
+	"errors"
 )
-
 type Handler struct {
 	Service *messagesService.MessageService
 }
@@ -17,72 +17,86 @@ func NewHandler(service *messagesService.MessageService) *Handler {
 	}
 }
 
-func (h *Handler) ErrorHandler(w http.ResponseWriter, statusCode int, message string) {
-	http.Error(w, message, statusCode)
+func (h *Handler) GetMessages(_ context.Context, _ messages.GetMessagesRequestObject) (messages.GetMessagesResponseObject, error) {
+	// Получение всех сообщений из сервиса
+	allMessages, err := h.Service.GetAllMessages()
+	if err != nil {
+		return nil, err
+	}
+
+	// Создаем переменную респон типа 200джейсонРеспонс
+	// Которую мы потом передадим в качестве ответа
+	response := messages.GetMessages200JSONResponse{}
+
+	// Заполняем слайс response всеми сообщениями из БД
+	for _, msg := range allMessages {
+		message := messages.Message{
+			Id:      &msg.ID,
+			Message: &msg.Message,
+		}
+		response = append(response, message)
+	}
+
+	// САМОЕ ПРЕКРАСНОЕ. Возвращаем просто респонс и nil!
+	return response, nil
 }
 
-func (h *Handler) GetMessagesHandler(w http.ResponseWriter, r *http.Request) {
-	messages, err := h.Service.GetAllMessages()
-	if err != nil {
-		h.ErrorHandler(w, http.StatusInternalServerError, "Ошибка при получении сообщений")
-		return
-	}
+func (h *Handler) PostMessages(_ context.Context, request messages.PostMessagesRequestObject) (messages.PostMessagesResponseObject, error) {
+	// Распаковываем тело запроса напрямую, без декодера!
+	messageRequest := request.Body
+	// Обращаемся к сервису и создаем сообщение
+	messageToCreate := messagesService.Message{Message: *messageRequest.Message}
+	createdMessage, err := h.Service.CreateMessage(messageToCreate)
 
-	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(messages)
+	if err != nil {
+		return nil, err
+	}
+	// создаем структуру респонс
+	response := messages.PostMessages201JSONResponse{
+		Id:      &createdMessage.ID,
+		Message: &createdMessage.Message,
+	}
+	// Просто возвращаем респонс!
+	return response, nil
 }
 
-func (h *Handler) PostMessageHandler(w http.ResponseWriter, r *http.Request) {
-	var message messagesService.Message
-	err := json.NewDecoder(r.Body).Decode(&message)
-	if err != nil {
-		h.ErrorHandler(w, http.StatusInternalServerError, "Ошибка при получении сообщения")
-		return
-	}
+func (h *Handler) PatchMessages(_ context.Context, request messages.PatchMessagesRequestObject) (messages.PatchMessagesResponseObject, error) {
+	// Распаковываем тело запроса напрямую, без декодера!
+	messageRequest := request.Body
+	// Обращаемся к сервису и обновляем сообщение
+	messageToUpdate := messagesService.Message{Message: *messageRequest.Message}
+	updatedMessage, err := h.Service.UpdateMessageByID(*messageRequest.Id,messageToUpdate)
 
-	createdMessage, err := h.Service.CreateMessage(message)
 	if err != nil {
-		h.ErrorHandler(w, http.StatusInternalServerError, "Ошибка при создании сообщения")
-		return
+		return nil, err
 	}
-
-	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(createdMessage)
+	// создаем структуру респонс
+	response := messages.PatchMessages200JSONResponse{
+		Id:      &updatedMessage.ID,
+		Message: &updatedMessage.Message,
+	}
+	// Просто возвращаем респонс!
+	return response, nil
 }
 
-func (h *Handler) PatchMessageHandler(w http.ResponseWriter, r *http.Request) {
-	var message messagesService.Message
-	err := json.NewDecoder(r.Body).Decode(&message)
-	if err != nil {
-		h.ErrorHandler(w, http.StatusInternalServerError, "Ошибка при получении сообщения")
-		return
+func (h *Handler) DeleteMessages(_ context.Context, request messages.DeleteMessagesRequestObject) (messages.DeleteMessagesResponseObject, error) {
+	// Распаковываем тело запроса напрямую, без декодера!
+	messageRequest := request.Body
+	if messageRequest == nil {
+		return nil, errors.New("messageRequest is nil")
 	}
 
-	updatedMessage, err := h.Service.UpdateMessageByID(int(message.ID),message)
+	// Обращаемся к сервису и удаляем сообщение
+	deletedMessage, err := h.Service.DeleteMessageByID(*messageRequest.Id)
+
 	if err != nil {
-		h.ErrorHandler(w, http.StatusInternalServerError, "Ошибка при обновлении сообщения")
-		return
+		return nil, err
 	}
-
-	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(updatedMessage)
-
-}
-
-func (h *Handler) DeleteMessageHandler(w http.ResponseWriter, r *http.Request) {
-	var message messagesService.Message
-	err := json.NewDecoder(r.Body).Decode(&message)
-	if err != nil {
-		h.ErrorHandler(w, http.StatusInternalServerError, "Ошибка при получении сообщения")
-		return
+	// создаем структуру респонс
+	response := messages.DeleteMessages200JSONResponse{
+		Id:      &deletedMessage.ID,
+		Message: &deletedMessage.Message,
 	}
-
-	deletedMessage, err := h.Service.DeleteMessageByID(int(message.ID))
-	if err != nil {
-		h.ErrorHandler(w, http.StatusInternalServerError, "Ошибка при удалении сообщения")
-		return
-	}
-
-	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(deletedMessage)
+	// Просто возвращаем респонс!
+	return response, nil
 }

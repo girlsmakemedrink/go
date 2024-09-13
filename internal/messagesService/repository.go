@@ -17,10 +17,10 @@ type MessageRepository interface {
 	GetAllMessages() ([]Message, error)
 
 	// UpdateMessageByID - Передаем id и Message, возвращаем обновленный Message и ошибку
-	UpdateMessageByID(id int, message Message) (Message, error)
+	UpdateMessageByID(id uint, message Message) (Message, error)
 
 	// DeleteMessageByID - Передаем id для удаления, возвращаем удаленное сообщение и ошибку
-	DeleteMessageByID(id int) (Message, error)
+	DeleteMessageByID(id uint) (Message, error)
 }
 
 type messageRepository struct {
@@ -47,7 +47,7 @@ func (r *messageRepository) CreateMessage(message Message) (Message, error) {
 	return message, nil
 }
 
-func (r *messageRepository) UpdateMessageByID(id int, message Message) (Message, error) {
+func (r *messageRepository) UpdateMessageByID(id uint, message Message) (Message, error) {
 	updatedMessage := r.db.First(&Message{}, id)
 	if updatedMessage.Error != nil {
 		return Message{}, updatedMessage.Error
@@ -60,7 +60,7 @@ func (r *messageRepository) UpdateMessageByID(id int, message Message) (Message,
 	return message, nil
 }
 
-func (r *messageRepository) DeleteMessageByID(id int) (Message, error) {
+func (r *messageRepository) DeleteMessageByID(id uint) (Message, error) {
 	var message Message
 	deletedMessage := r.db.First(&message, id)
 	if deletedMessage.Error != nil {
