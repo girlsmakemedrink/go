@@ -2,22 +2,22 @@ package handlers
 
 import (
 	"context"
-	"hw/internal/messagesService" // Импортируем наш сервис
-	"hw/internal/web/messages"        // Импортируем пакет messages
 	"errors"
+	"hw/internal/messagesService" // Импортируем наш сервис
+	"hw/internal/web/messages"    // Импортируем пакет messages
 )
-type Handler struct {
+type MessageHandler struct {
 	Service *messagesService.MessageService
 }
 
 // Нужна для создания структуры Handler на этапе инициализации приложения
-func NewHandler(service *messagesService.MessageService) *Handler {
-	return &Handler{
+func NewMessageHandler(service *messagesService.MessageService) *MessageHandler {
+	return &MessageHandler{
 		Service: service,
 	}
 }
 
-func (h *Handler) GetMessages(_ context.Context, _ messages.GetMessagesRequestObject) (messages.GetMessagesResponseObject, error) {
+func (h *MessageHandler) GetMessages(_ context.Context, _ messages.GetMessagesRequestObject) (messages.GetMessagesResponseObject, error) {
 	// Получение всех сообщений из сервиса
 	allMessages, err := h.Service.GetAllMessages()
 	if err != nil {
@@ -41,7 +41,7 @@ func (h *Handler) GetMessages(_ context.Context, _ messages.GetMessagesRequestOb
 	return response, nil
 }
 
-func (h *Handler) PostMessages(_ context.Context, request messages.PostMessagesRequestObject) (messages.PostMessagesResponseObject, error) {
+func (h *MessageHandler) PostMessages(_ context.Context, request messages.PostMessagesRequestObject) (messages.PostMessagesResponseObject, error) {
 	// Распаковываем тело запроса напрямую, без декодера!
 	messageRequest := request.Body
 	// Обращаемся к сервису и создаем сообщение
@@ -60,7 +60,7 @@ func (h *Handler) PostMessages(_ context.Context, request messages.PostMessagesR
 	return response, nil
 }
 
-func (h *Handler) PatchMessages(_ context.Context, request messages.PatchMessagesRequestObject) (messages.PatchMessagesResponseObject, error) {
+func (h *MessageHandler) PatchMessages(_ context.Context, request messages.PatchMessagesRequestObject) (messages.PatchMessagesResponseObject, error) {
 	// Распаковываем тело запроса напрямую, без декодера!
 	messageRequest := request.Body
 	// Обращаемся к сервису и обновляем сообщение
@@ -79,7 +79,7 @@ func (h *Handler) PatchMessages(_ context.Context, request messages.PatchMessage
 	return response, nil
 }
 
-func (h *Handler) DeleteMessages(_ context.Context, request messages.DeleteMessagesRequestObject) (messages.DeleteMessagesResponseObject, error) {
+func (h *MessageHandler) DeleteMessages(_ context.Context, request messages.DeleteMessagesRequestObject) (messages.DeleteMessagesResponseObject, error) {
 	// Распаковываем тело запроса напрямую, без декодера!
 	messageRequest := request.Body
 	if messageRequest == nil {

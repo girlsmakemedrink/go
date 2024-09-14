@@ -48,18 +48,29 @@ func (r *messageRepository) CreateMessage(message Message) (Message, error) {
 }
 
 func (r *messageRepository) UpdateMessageByID(id uint, message Message) (Message, error) {
-	var existingMessage Message
-	updateMessage := r.db.First(&existingMessage, id)
-	if updateMessage.Error != nil {
-		return Message{}, updateMessage.Error
+	var existingMessage Message // В этой переменной храним существующее сообщение из БД
+
+	// Ищем существующее сообщение в БД по заданному id
+	result := r.db.First(&existingMessage, id)
+	if result.Error != nil {
+		return Message{}, result.Error
+	}
+	// Обозначем поля, которые будем обновлять
+	updates := map[string]interface{}{
+		"Message": message.Message,
+	}
+	// Обновляем запись в БД, в соответствие заданному id
+	result = r.db.Model(&Message{}).Where("id = ?", id).Updates(updates)
+	if result.Error != nil {
+		return Message{}, result.Error
 	}
 
-	// Обновляем существующую запись
-	existingMessage.Message = message.Message
-	updateMessage = r.db.Save(&existingMessage)
-	if updateMessage.Error != nil {
-		return Message{}, updateMessage.Error
+	// Обновляем existingMessage, чтобы вернуть актуальные данные
+	result = r.db.First(&existingMessage, id)
+	if result.Error != nil {
+		return Message{}, result.Error
 	}
+
 	return existingMessage, nil
 }
 

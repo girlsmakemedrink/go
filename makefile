@@ -2,6 +2,7 @@ DB_DSN := "postgres://postgres:1234@localhost:5432/postgres?sslmode=disable"
 MIGRATE := migrate -path ./migrations -database $(DB_DSN)
 
 gen:
+	oapi-codegen -config openapi/.openapi -include-tags users -package users openapi/openapi.yaml > ./internal/web/users/api.gen.go
 	oapi-codegen -config openapi/.openapi -include-tags messages -package messages openapi/openapi.yaml > ./internal/web/messages/api.gen.go
 
 # Таргет для создания новой миграции

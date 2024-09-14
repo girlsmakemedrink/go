@@ -13,13 +13,13 @@ func (s *MessageService) GetAllMessages() ([]Message, error) {
 }
 
 func (s *MessageService) CreateMessage(message Message) (Message, error) {
-return s.repo.CreateMessage(message)
+	return s.repo.CreateMessage(message)
 }
 
 func (s *MessageService) UpdateMessageByID(ID uint, message Message) (Message, error) {
-return s.repo.UpdateMessageByID(ID, message)
+	return s.repo.UpdateMessageByID(ID, message)
 }
 
 func (s *MessageService) DeleteMessageByID(ID uint) (Message, error) {
-return s.repo.DeleteMessageByID(ID)
+	return s.repo.DeleteMessageByID(ID)
 }
