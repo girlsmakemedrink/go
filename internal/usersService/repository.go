@@ -6,7 +6,8 @@ import (
 
 type User struct {
 	gorm.Model
-	User string `json:"User"`
+	Email string `json:"Email"`
+	Password string `json:"Password"`
 }
 
 type UserRepository interface {
@@ -57,7 +58,8 @@ func (r *userRepository) UpdateUserByID(id uint, user User) (User, error) {
 	}
 	// Обозначаем поля, которые будем обновлять
 	updates := map[string]interface{}{
-		"User": user.User,
+		"Email": user.Email,
+		"Password": user.Password,
 	}
 	// Обновляем запись в БД, соответствующую заданному id
 	result = r.db.Model(&User{}).Where("id = ?", id).Updates(updates)

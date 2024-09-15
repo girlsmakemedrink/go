@@ -15,8 +15,9 @@ import (
 
 // User defines model for User.
 type User struct {
-	Id   *uint   `json:"id,omitempty"`
-	User *string `json:"user,omitempty"`
+	Email    *string `json:"email,omitempty"`
+	Id       *uint   `json:"id,omitempty"`
+	Password *string `json:"password,omitempty"`
 }
 
 // DeleteUsersJSONRequestBody defines body for DeleteUsers for application/json ContentType.

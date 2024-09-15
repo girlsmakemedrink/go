@@ -29,8 +29,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24bccfb1-8a70-43a9-a99c-eed8b6c450a6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/makefile" beforeDir="false" afterPath="$PROJECT_DIR$/makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/davecgh/go-spew/@v/list_Zone.Identifier" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/davecgh/go-spew/@v/list_Zone.Identifier_Zone.Identifier" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/davecgh/go-spew/@v/v1.1.0.mod_Zone.Identifier" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/davecgh/go-spew/@v/v1.1.0.mod_Zone.Identifier_Zone.Identifier" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/golang-migrate/migrate/@v/list_Zone.Identifier" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/golang-migrate/migrate/@v/list_Zone.Identifier_Zone.Identifier" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/golang-migrate/migrate/@v/v1.3.2.mod_Zone.Identifier" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/golang-migrate/migrate/@v/v1.3.2.mod_Zone.Identifier_Zone.Identifier" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/golang-migrate/migrate/@v/v3.5.4+incompatible.info_Zone.Identifier" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/golang-migrate/migrate/@v/v3.5.4+incompatible.info_Zone.Identifier_Zone.Identifier" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/golang-migrate/migrate/@v/v3.5.4+incompatible.lock_Zone.Identifier" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/golang-migrate/migrate/@v/v3.5.4+incompatible.lock_Zone.Identifier_Zone.Identifier" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/golang-migrate/migrate/@v/v3.5.4+incompatible.mod_Zone.Identifier" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/golang-migrate/migrate/@v/v3.5.4+incompatible.mod_Zone.Identifier_Zone.Identifier" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/database/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/database/db.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/handlers/userHandlers.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/handlers/userHandlers.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/usersService/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/usersService/repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/web/users/api.gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/web/users/api.gen.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/2_users.up.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/2_users.up.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/openapi/openapi.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/openapi/openapi.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +65,7 @@
   </component>
   <component name="GOROOT" path="C:\Users\terki\awesomeProject\go1.23.1" />
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GithubPullRequestsUISettings">
     <option name="hiddenUrls">
@@ -82,7 +101,7 @@
     <property name="configurable.Project.GOPATH.is.expanded" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="//wsl$/Ubuntu/home/nechitayumresh/go/src/hw-main/hw-main" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.make" />
     <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$" />
   </component>
@@ -208,10 +227,10 @@
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
     <state x="92" y="92" width="1736" height="848" key="DiffContextDialog/-1920.-118.1920.1152/0.0.1920.1032@0.0.1920.1032" timestamp="1725822407130" />
-    <state x="740" y="348" key="FileChooserDialogImpl" timestamp="1726348109656">
+    <state x="740" y="348" key="FileChooserDialogImpl" timestamp="1726382318356">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state x="740" y="348" key="FileChooserDialogImpl/-1920.-118.1920.1152/0.0.1920.1032@0.0.1920.1032" timestamp="1726348109656" />
+    <state x="740" y="348" key="FileChooserDialogImpl/-1920.-118.1920.1152/0.0.1920.1032@0.0.1920.1032" timestamp="1726382318356" />
     <state x="740" y="388" key="FileChooserDialogImpl/0.0.1920.1152@0.0.1920.1152" timestamp="1726127390907" />
     <state x="668" y="218" key="RollbackChangesDialog" timestamp="1726170088410">
       <screen x="0" y="0" width="1920" height="1032" />

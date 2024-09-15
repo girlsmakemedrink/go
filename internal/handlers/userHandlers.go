@@ -32,7 +32,8 @@ func (h *UserHandler) GetUsers(_ context.Context, _ users.GetUsersRequestObject)
 	for _, usr := range allUsers {
 		user := users.User{
 			Id:   &usr.ID,
-			User: &usr.User,
+			Email: &usr.Email,
+			Password: &usr.Password,
 		}
 		response = append(response, user)
 	}
@@ -45,7 +46,7 @@ func (h *UserHandler) PostUsers(_ context.Context, request users.PostUsersReques
 	// Распаковываем тело запроса напрямую, без декодера!
 	userRequest := request.Body
 	// Обращаемся к сервису и создаем пользователя
-	userToCreate := usersService.User{User: *userRequest.User}
+	userToCreate := usersService.User{Email: *userRequest.Email, Password: *userRequest.Password}
 	createdUser, err := h.Service.CreateUser(userToCreate)
 
 	if err != nil {
@@ -54,7 +55,8 @@ func (h *UserHandler) PostUsers(_ context.Context, request users.PostUsersReques
 	// создаем структуру респонс
 	response := users.PostUsers201JSONResponse{
 		Id:   &createdUser.ID,
-		User: &createdUser.User,
+		Email: &createdUser.Email,
+		Password: &createdUser.Password,
 	}
 	// Просто возвращаем респонс!
 	return response, nil
@@ -64,7 +66,7 @@ func (h *UserHandler) PatchUsers(_ context.Context, request users.PatchUsersRequ
 	// Распаковываем тело запроса напрямую, без декодера!
 	userRequest := request.Body
 	// Обращаемся к сервису и обновляем пользователя
-	userToUpdate := usersService.User{User: *userRequest.User}
+	userToUpdate := usersService.User{Email: *userRequest.Email, Password: *userRequest.Password}
 	updatedUser, err := h.Service.UpdateUserByID(*userRequest.Id,userToUpdate)
 
 	if err != nil {
@@ -73,7 +75,8 @@ func (h *UserHandler) PatchUsers(_ context.Context, request users.PatchUsersRequ
 	// создаем структуру респонс
 	response := users.PatchUsers200JSONResponse{
 		Id:   &updatedUser.ID,
-		User: &updatedUser.User,
+		Email: &updatedUser.Email,
+		Password: &updatedUser.Password,
 	}
 	// Просто возвращаем респонс!
 	return response, nil
@@ -95,7 +98,8 @@ func (h *UserHandler) DeleteUsers(_ context.Context, request users.DeleteUsersRe
 	// создаем структуру респонс
 	response := users.DeleteUsers200JSONResponse{
 		Id:   &deletedUser.ID,
-		User: &deletedUser.User,
+		Email: &deletedUser.Email,
+		Password: &deletedUser.Password,
 	}
 	// Просто возвращаем респонс!
 	return response, nil

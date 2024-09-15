@@ -12,7 +12,13 @@ var DB *gorm.DB
 
 type Message struct {
 	gorm.Model
-	Text string `json:"Message"`
+	Message string `json:"Message"`
+}
+
+type User struct {
+	gorm.Model
+	Email string `json:"Email"`
+	Password string `json:"Password"`
 }
 
 func InitDB() {

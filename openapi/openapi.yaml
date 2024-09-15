@@ -155,5 +155,7 @@ components:
         id:
           type: integer
           format: uint # так как в БД айди это только положительные числа.
-        user:
+        email:
+          type: string
+        password:
           type: string
